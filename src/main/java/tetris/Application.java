@@ -1,9 +1,7 @@
 package tetris;
 
-import java.io.IOException;
-
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Game game = new Game();
         game.run();
     }
