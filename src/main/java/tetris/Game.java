@@ -24,6 +24,13 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        arena = new Arena(40, 20);
+    }
+    private void draw() throws IOException {
+        screen.clear();
+        arena.draw(screen.newTextGraphics());
+        screen.refresh();
     }
     Screen screen;
+    Arena arena;
 }
