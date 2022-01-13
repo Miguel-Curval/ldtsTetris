@@ -5,17 +5,21 @@ public class Piece {
     private int y;
     private int [][]shape;
     private String color;
-    private String azul = "#0341ae";
-    private String amarelo = "#ffd500";
-    private String verde = "#72cb3b";
     private String[] colors = {"#0341ae", "#ffd500", "#72cb3b"};
-    public enum Colors{
-        azul, amarelo, verde;
-    }
-    Piece(int x, int y, int [][]shape, int i){
+
+    Piece(int x, int y, int j, int i){
         this.x = x;
         this.y = y;
-        this.shape = shape;
+
+        switch (j){ // 1 representa espaço ocupado por peça e 0 espaço livre
+            case 0: shape = new int[][]{{1, 1, 0}, {0, 1, 1}};
+            case 1: shape = new int[][]{{0, 0, 0, 1}, {1, 1, 1, 1}};
+            case 2: shape = new int[][]{{1, 1}, {1, 1}};
+            case 3: shape = new int[][]{{0, 1, 1}, {1, 1, 0}};
+            case 4: shape = new int[][]{{1, 1, 1, 1}};
+            case 5: shape = new int[][]{{1, 0, 0, 0}, {1, 1, 1, 1}};
+            case 6: shape = new int[][]{{0, 1, 0}, {1, 1, 1}};
+        }
         this.color = colors[i];
     }
 
@@ -43,4 +47,5 @@ public class Piece {
         return this.shape[0].length;
     }
 }
+
 
